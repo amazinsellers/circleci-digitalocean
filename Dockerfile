@@ -13,4 +13,10 @@ RUN echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | tee -a /etc/a
 RUN apt-get update
 RUN apt-get install -y kubectl
 
+RUN curl https://baltocdn.com/helm/signing.asc | sudo apt-key add -
+RUN sudo apt-get install apt-transport-https --yes
+RUN echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc/apt/sources.list.d/helm-stable-debian.list
+RUN apt-get update
+RUN apt-get install helm
+
 USER circleci
