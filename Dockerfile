@@ -19,4 +19,6 @@ RUN echo "deb https://baltocdn.com/helm/stable/debian/ all main" | sudo tee /etc
 RUN apt-get update
 RUN apt-get install helm
 
+RUN helm repo add bitnami https://charts.bitnami.com/bitnami
+
 USER circleci
